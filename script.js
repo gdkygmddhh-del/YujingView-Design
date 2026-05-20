@@ -10,11 +10,21 @@ document.addEventListener("DOMContentLoaded", function () {
     img.addEventListener("click", function () {
       previewImg.src = img.src;
       preview.classList.add("active");
+      document.body.style.overflow = "hidden";
     });
   });
 
   preview.addEventListener("click", function () {
     preview.classList.remove("active");
     previewImg.src = "";
+    document.body.style.overflow = "";
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      preview.classList.remove("active");
+      previewImg.src = "";
+      document.body.style.overflow = "";
+    }
   });
 });
