@@ -279,3 +279,43 @@ transform:none;
 }
 
 }
+/* 图片预览层：不破坏原布局 */
+.image-lightbox{
+position:fixed;
+inset:0;
+background:rgba(3,8,22,.82);
+backdrop-filter:blur(18px);
+z-index:9999;
+display:none;
+align-items:center;
+justify-content:center;
+padding:40px;
+}
+
+.image-lightbox.active{
+display:flex;
+}
+
+.image-lightbox img{
+max-width:92vw;
+max-height:88vh;
+object-fit:contain;
+border-radius:22px;
+box-shadow:0 40px 120px rgba(0,0,0,.65);
+background:#050816;
+}
+
+.image-lightbox::after{
+content:"点击任意位置关闭";
+position:absolute;
+bottom:28px;
+left:50%;
+transform:translateX(-50%);
+font-size:14px;
+color:rgba(255,255,255,.65);
+}
+
+/* 保持原图卡片不变 */
+.card img{
+cursor:zoom-in;
+}
