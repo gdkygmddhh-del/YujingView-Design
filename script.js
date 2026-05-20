@@ -1,1 +1,20 @@
-document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}})});
+document.addEventListener("DOMContentLoaded", function () {
+  const preview = document.createElement("div");
+  preview.className = "image-lightbox";
+
+  const previewImg = document.createElement("img");
+  preview.appendChild(previewImg);
+  document.body.appendChild(preview);
+
+  document.querySelectorAll(".card img").forEach(function (img) {
+    img.addEventListener("click", function () {
+      previewImg.src = img.src;
+      preview.classList.add("active");
+    });
+  });
+
+  preview.addEventListener("click", function () {
+    preview.classList.remove("active");
+    previewImg.src = "";
+  });
+});
