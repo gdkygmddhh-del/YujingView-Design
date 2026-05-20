@@ -62,8 +62,7 @@ display:flex;
 align-items:center;
 background:
 linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.65)),
-url('images/custom.jpg') center/contain no-repeat;
-background-color:#030816;
+url('images/custom.png') center/cover no-repeat;
 }
 
 .hero-inner{
@@ -146,7 +145,7 @@ padding:0 32px 120px;
 background:rgba(255,255,255,.04);
 border:1px solid rgba(255,255,255,.08);
 border-radius:28px;
-overflow:hidden;
+overflow:visible;
 position:relative;
 transition:.45s;
 backdrop-filter:blur(14px);
@@ -159,18 +158,23 @@ box-shadow:0 30px 80px rgba(37,99,255,.18);
 
 .card img{
 width:100%;
-height:320px;
-object-fit:contain;
-background:#050816;
+height:280px;
+object-fit:cover;
 display:block;
-transition:.4s;
-padding:12px;
+position:relative;
+z-index:2;
+cursor:pointer;
+transition:.35s;
+border-radius:28px 28px 0 0;
 }
 
-.card:hover img{
-height:520px;
+.card img:hover{
+transform:scale(1.85);
 object-fit:contain;
 background:#030816;
+z-index:999;
+box-shadow:0 30px 90px rgba(0,0,0,.6);
+border-radius:18px;
 }
 
 .content{
@@ -196,6 +200,7 @@ font-size:42px;
 font-weight:800;
 opacity:.06;
 pointer-events:none;
+z-index:3;
 }
 
 .feature{
@@ -269,12 +274,8 @@ font-size:38px;
 grid-template-columns:1fr;
 }
 
-.card img{
-height:auto;
-}
-
-.card:hover img{
-height:auto;
+.card img:hover{
+transform:none;
 }
 
 }
